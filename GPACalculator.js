@@ -43,7 +43,7 @@ class GPACalculator {
         }
 
         // Add extra points for Honors, AP, and DE classes
-        if (type === 'Honors') points += 0.5;
+        if (type === 'Hon ors') points += 0.5;
         if (type === 'AP' || type === 'DE') points += 1.0;
 
         return points;
