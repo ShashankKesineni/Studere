@@ -1,8 +1,8 @@
 class GPACalculator {
-
+    grades = [];
     // Constructor to initialize the grades array
     constructor() {
-        this.grades = [];
+        // this.grades = [];
     }
 
     // Method to add a class grade to the grades array
@@ -43,26 +43,24 @@ class GPACalculator {
         }
 
         // Add extra points for Honors, AP, and DE classes
-        if (type === 'Hon ors') points += 0.5;
+        if (type === 'Honors') points += 0.5;
         if (type === 'AP' || type === 'DE') points += 1.0;
 
         return points;
     }
 
-    // Method to input grades from the user
-    inputGrades() {
-        const numberOfClasses = parseInt(prompt("Enter the number of classes: "), 10);
-        for (let i = 0; i < numberOfClasses; i++) {
-            const className = prompt(`Enter the name of class ${i + 1}: `);
-            const grade = prompt(`Enter the grade for ${className}: `);
-            const type = prompt(`Enter the type for ${className} (Regular, Honors, AP, DE): `);
-            this.addClassGrade(className, grade, type);
-        }
-    }
 }
 
 // Example usage:
 const gpaCalc = new GPACalculator();
-gpaCalc.inputGrades();
+gpaCalc.addClassGrade('Math', 'A', 'Regular');
+gpaCalc.addClassGrade('Science', 'B+', 'Honors');
+gpaCalc.addClassGrade('History', 'A-', 'AP');
+gpaCalc.addClassGrade('English', 'C', 'Regular');
+gpaCalc.addClassGrade('Art', 'A', 'Regular');
+gpaCalc.grades.forEach(({ className, grade, type }) => {
+    console.log(`${className}: ${grade} (${type})`);
+}
+);
 gpaCalc.calculateGPA();
 console.log('Current GPA:', gpaCalc.calculateGPA());
