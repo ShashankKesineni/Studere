@@ -4,6 +4,12 @@ class TodoItem {
         this.description = description;
         this.priority = priority;
         this.dueDate = new Date(dueDate);
+
+        // Check if the due date is valid
+        if (isNaN(this.dueDate.getTime())) {
+            throw new Error(`Invalid date format for task: ${title}`);
+        }
+
         this.completed = false;
     }
 
@@ -12,42 +18,25 @@ class TodoItem {
     }
 }
 
-/**
- * Class representing a list of to-do items.
- */
+// Class representing a list of to-do items.
 class TodoList {
-    /**
-     * Create a to-do list.
-     */
+    // Create a to-do list.
     constructor() {
         this.items = [];
     }
 
-    /**
-     * Add a new item to the to-do list.
-     * @param {string} title - The title of the to-do item.
-     * @param {string} description - The description of the to-do item.
-     * @param {number} priority - The priority of the to-do item.
-     * @param {Date} dueDate - The due date of the to-do item.
-     */
+    // Add a new item to the to-do list.
     addItem(title, description, priority, dueDate) {
         const newItem = new TodoItem(title, description, priority, dueDate);
         this.items.push(newItem);
     }
 
-    /**
-     * Remove an item from the to-do list by title.
-     * @param {string} title - The title of the to-do item to remove.
-     */
+    // Remove an item from the to-do list by title.
     removeItem(title) {
         this.items = this.items.filter(item => item.title !== title);
     }
 
-    /**
-     * Get items from the to-do list, optionally sorted by a specified field.
-     * @param {string} [sortBy] - The field to sort by ('priority' or 'due_date').
-     * @returns {TodoItem[]} The sorted or unsorted list of to-do items.
-     */
+    // Get items from the to-do list, optionally sorted by a specified field.
     getItems(sortBy) {
         if (sortBy === 'priority') {
             return this.items.slice().sort((a, b) => a.priority - b.priority);
@@ -57,10 +46,7 @@ class TodoList {
         return this.items;
     }
 
-    /**
-     * Get items that are due soon (within the next 24 hours).
-     * @returns {TodoItem[]} The list of to-do items that are due soon.
-     */
+    // Get items that are due soon (within the next 24 hours).
     getDueSoon() {
         const now = new Date();
         const soon = new Date(now.getTime() + 24 * 60 * 60 * 1000);
@@ -88,8 +74,3 @@ console.log("All items sorted by priority:");
 todoList.getItems('priority').forEach(item => {
     console.log(`- ${item.title} (Priority: ${item.priority}, Due: ${item.dueDate})`);
 });
-
-this.dueDate = new Date(dueDate);
-if (isNaN(this.dueDate.getTime())) {
-    throw new Error(`Invalid date format for task: ${title}`);
-}
