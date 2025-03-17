@@ -1,0 +1,95 @@
+class TodoItem {
+    constructor(title, description, priority, dueDate) {
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.dueDate = new Date(dueDate);
+        this.completed = false;
+    }
+
+    markCompleted() {
+        this.completed = true;
+    }
+}
+
+/**
+ * Class representing a list of to-do items.
+ */
+class TodoList {
+    /**
+     * Create a to-do list.
+     */
+    constructor() {
+        this.items = [];
+    }
+
+    /**
+     * Add a new item to the to-do list.
+     * @param {string} title - The title of the to-do item.
+     * @param {string} description - The description of the to-do item.
+     * @param {number} priority - The priority of the to-do item.
+     * @param {Date} dueDate - The due date of the to-do item.
+     */
+    addItem(title, description, priority, dueDate) {
+        const newItem = new TodoItem(title, description, priority, dueDate);
+        this.items.push(newItem);
+    }
+
+    /**
+     * Remove an item from the to-do list by title.
+     * @param {string} title - The title of the to-do item to remove.
+     */
+    removeItem(title) {
+        this.items = this.items.filter(item => item.title !== title);
+    }
+
+    /**
+     * Get items from the to-do list, optionally sorted by a specified field.
+     * @param {string} [sortBy] - The field to sort by ('priority' or 'due_date').
+     * @returns {TodoItem[]} The sorted or unsorted list of to-do items.
+     */
+    getItems(sortBy) {
+        if (sortBy === 'priority') {
+            return this.items.slice().sort((a, b) => a.priority - b.priority);
+        } else if (sortBy === 'due_date') {
+            return this.items.slice().sort((a, b) => a.dueDate - b.dueDate);
+        }
+        return this.items;
+    }
+
+    /**
+     * Get items that are due soon (within the next 24 hours).
+     * @returns {TodoItem[]} The list of to-do items that are due soon.
+     */
+    getDueSoon() {
+        const now = new Date();
+        const soon = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+        return this.items.filter(item => !item.completed && item.dueDate > now && item.dueDate < soon);
+    }
+}
+
+// Example usage
+const todoList = new TodoList();
+
+todoList.addItem("Finish project", "Complete the project by end of the week", 1, "2023-10-15T00:00:00");
+todoList.addItem("Buy groceries", "Milk, Bread, Eggs", 2, "2023-10-12T00:00:00");
+
+// Check for due soon items
+const dueSoonItems = todoList.getDueSoon();
+if (dueSoonItems.length > 0) {
+    console.log("You have items due soon:");
+    dueSoonItems.forEach(item => {
+        console.log(`- ${item.title} (Due: ${item.dueDate})`);
+    });
+}
+
+// Print all items sorted by priority
+console.log("All items sorted by priority:");
+todoList.getItems('priority').forEach(item => {
+    console.log(`- ${item.title} (Priority: ${item.priority}, Due: ${item.dueDate})`);
+});
+
+this.dueDate = new Date(dueDate);
+if (isNaN(this.dueDate.getTime())) {
+    throw new Error(`Invalid date format for task: ${title}`);
+}
