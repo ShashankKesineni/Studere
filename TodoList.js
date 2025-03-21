@@ -52,6 +52,19 @@ class TodoList {
         const soon = new Date(now.getTime() + 24 * 60 * 60 * 1000);
         return this.items.filter(item => !item.completed && item.dueDate > now && item.dueDate < soon);
     }
+
+    // Display a reminder for items due soon.
+    displayDueSoonReminder() {
+        const dueSoonItems = this.getDueSoon();
+        if (dueSoonItems.length > 0) {
+            console.log("You have items due soon:");
+            dueSoonItems.forEach(item => {
+                console.log(`- ${item.title} (Due: ${item.dueDate})`);
+            });
+        } else {
+            console.log("No items due soon.");
+        }
+    }
 }
 
 // Example usage
@@ -60,14 +73,8 @@ const todoList = new TodoList();
 todoList.addItem("Finish project", "Complete the project by end of the week", 1, "2023-10-15T00:00:00");
 todoList.addItem("Buy groceries", "Milk, Bread, Eggs", 2, "2023-10-12T00:00:00");
 
-// Check for due soon items
-const dueSoonItems = todoList.getDueSoon();
-if (dueSoonItems.length > 0) {
-    console.log("You have items due soon:");
-    dueSoonItems.forEach(item => {
-        console.log(`- ${item.title} (Due: ${item.dueDate})`);
-    });
-}
+// Display reminder for due soon items when the app starts
+todoList.displayDueSoonReminder();
 
 // Print all items sorted by priority
 console.log("All items sorted by priority:");
