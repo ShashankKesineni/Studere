@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studere | Organize Your School In One Website | GPA Calculator</title>
+    <link rel="icon" href="images/StudereFavicon.png">
+    <link rel="stylesheet" href="css/gpa-calculator.css">
+</head>
+<body>
+    <header>
+        <h1>
+            GPA Calculator
+        </h1>
+        <h2>
+            Calculate your weighted and unweighted GPA by putting 
+            course information. This GPA Calculator uses a 4.3 scale. 
+            The unweighted GPA is calculated on a 4.0 scale. 
+        </h2>
+        <main>
+            <button id="add-button">(+) Add a Class or Course</button>
+            <button id="subtract-button">(-) Remove a Class or Course</button>
+            <div class="two-select-section">
+                <button class="two-select" id="calculate-button">Calculate</button>
+                <button class="two-select" id="remove-all-button">Erase All</button>
+                <select name="scale-selector" id="scale-selector">
+                    <option value="4.0">4.0 Scale</option>
+                    <option value="4.3">4.3 Scale</option>
+                </select>
+            </div>
+            <div class="container-data"></div>
+            <div class="gpaOutput">
+                <div class="w"></div>
+                <div class="uw"></div>
+            </div>
+        </main>
+    </header>
+    <script src="javascript/gpatester.js"></script>
+</body>
+</html>
