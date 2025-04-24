@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color:white;
+}
+
+nav {
+    display:flex;
+    padding:10px;
+    border-bottom:2px solid black;
+}
+
+.logo-image {
+    height:90px;
+    margin-left:50px;
+    cursor:pointer;
+}
+
+.nav-button-menu {
+    margin-left:700px;
+    margin-top:35px;
+}
+
+.nav-button-link {
+    background-color:aliceblue;
+    color:black;
+    margin-left:20px;
+    padding:15px;
+    border-radius:20px;
+    text-decoration:none;
+}
+
+.nav-button-link:hover {
+    background-color:lightgray;
+}
+
+#signup-button {
+    background-color:black;
+    color:white;
+    font-size:15px;
+    font-style:italic;
+    font-weight:bold;
+}
+
+#signup-button:hover {
+    background-color:darkslategray;
+}
