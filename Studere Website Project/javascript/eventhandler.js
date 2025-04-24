@@ -152,6 +152,36 @@ function addEventInformation(preEvent) {
     preEvent.appendChild(addEventDetails);
     preEvent.appendChild(addEventSubmit);
     preEvent.appendChild(addEventCancel);
+
+    // Save events to local storage
+function saveEventsToLocalStorage() {
+    localStorage.setItem('events', JSON.stringify(eventHandlerInstance.events));
+}
+
+// Load events from local storage
+function loadEventsFromLocalStorage() {
+    const savedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    savedEvents.forEach(event => {
+        eventHandlerInstance.addEvent(event.title, event.date, event.location, event.details);
+        addRealEvent();
+    });
+}
+
+// Call loadEventsFromLocalStorage when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    loadEventsFromLocalStorage();
+});
+
+// Update saveEventsToLocalStorage whenever an event is added or removed
+addEventSubmit.addEventListener("click", () => {
+    // ...existing code...
+    saveEventsToLocalStorage();
+});
+
+deleteEventButton.addEventListener("click", () => {
+    // ...existing code...
+    saveEventsToLocalStorage();
+});
 }
 
 

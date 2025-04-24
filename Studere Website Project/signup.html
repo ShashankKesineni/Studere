@@ -47,5 +47,24 @@
             </div>
         </div>
     </main>
+
+
+    <script>
+        document.getElementById("enter-button").addEventListener("click", () => {
+            const email = document.querySelector("input[placeholder='Email']").value.trim();
+            const username = document.querySelector("input[placeholder='Username']").value.trim();
+            const password = document.querySelector("input[placeholder='Password']").value.trim();
+            const gradeLevel = document.getElementById("grade-level").value;
+    
+            if (email && username && password && gradeLevel) {
+                const userData = { email, username, password, gradeLevel };
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert("Sign-up successful! You can now log in.");
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <header>
+            <button id="back-button" style="background: none; border: none; cursor: pointer; font-size: 1rem; margin-right: 10px;">
+                &#8592; Back
+            </button>
+        </header>
+        <script>
+            document.getElementById("back-button").addEventListener("click", () => {
+                window.history.back(); // Navigate to the previous page
+            });
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Studere | Notes</title>
+        <link rel="stylesheet" href="css/notes-settings.css"> <!-- Link to the new CSS file -->
+    </head>
+<body>
+    <header>
+        
+        <h1>Notes</h1>
+    </header>
+    <main>
+        <textarea id="notes-area" placeholder="Write your notes here..." style="width: 100%; height: 300px;"></textarea>
+        <button id="save-notes-button">Save Notes</button>
+        <button id="clear-notes-button">Clear Notes</button>
+    </main>
+    <script>
+        // Load saved notes from localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedNotes = localStorage.getItem("userNotes");
+            if (savedNotes) {
+                document.getElementById("notes-area").value = savedNotes;
+            }
+        });
+
+        // Save notes to localStorage
+        document.getElementById("save-notes-button").addEventListener("click", () => {
+            const notes = document.getElementById("notes-area").value;
+            localStorage.setItem("userNotes", notes);
+            alert("Notes saved successfully!");
+        });
+
+        // Clear notes
+        document.getElementById("clear-notes-button").addEventListener("click", () => {
+            document.getElementById("notes-area").value = "";
+            localStorage.removeItem("userNotes");
+            alert("Notes cleared!");
+        });
+    </script>
+</body>
+</html>

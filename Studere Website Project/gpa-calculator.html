@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <button id="back-button" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; margin-right: 10px;">
+        &#8592; Back
+    </button>
+    
+</header>
+<script>
+    document.getElementById("back-button").addEventListener("click", () => {
+        window.history.back(); // Navigate to the previous page
+    });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studere | Organize Your School In One Website | GPA Calculator</title>
@@ -8,7 +18,10 @@
     <link rel="stylesheet" href="css/gpa-calculator.css">
 </head>
 <body>
+    
     <header>
+        <header>
+            
         <h1>
             GPA Calculator
         </h1>
@@ -17,24 +30,64 @@
             course information. This GPA Calculator uses a 4.3 scale. 
             The unweighted GPA is calculated on a 4.0 scale. 
         </h2>
-        <main>
-            <button id="add-button">(+) Add a Class or Course</button>
-            <button id="subtract-button">(-) Remove a Class or Course</button>
-            <div class="two-select-section">
-                <button class="two-select" id="calculate-button">Calculate</button>
-                <button class="two-select" id="remove-all-button">Erase All</button>
-                <select name="scale-selector" id="scale-selector">
-                    <option value="4.0">4.0 Scale</option>
-                    <option value="4.3">4.3 Scale</option>
-                </select>
-            </div>
-            <div class="container-data"></div>
-            <div class="gpaOutput">
-                <div class="w"></div>
-                <div class="uw"></div>
-            </div>
-        </main>
-    </header>
+    <main>
+        <button id="add-button">(+) Add a Class or Course</button>
+        <button id="subtract-button">(-) Remove a Class or Course</button>
+        <div class="two-select-section">
+            <button class="two-select" id="calculate-button">Calculate</button>
+            <button class="two-select" id="remove-all-button">Erase All</button>
+            <select name="scale-selector" id="scale-selector">
+                <option value="4.0">4.0 Scale</option>
+                <option value="4.3">4.3 Scale</option>
+            </select>
+        </div>
+        <div class="container-data"></div>
+        
+        <div class="gpaOutput">
+            <div class="w"></div>
+            <div class="uw"></div>
+        </div>
+        <button id="save-gpa-button">Save GPA Data</button></main>
+    </main>
     <script src="javascript/gpatester.js"></script>
+    <script>
+        // Load saved GPA data from localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedGPAData = JSON.parse(localStorage.getItem("gpaData")) || [];
+            // Clear existing courses first
+            document.querySelector('.container-data').innerHTML = '';
+            // Only process saved data if it exists and has items
+            if (savedGPAData && savedGPAData.length > 0) {
+            savedGPAData.forEach(course => {
+                // Only add course if it has valid data
+                if (course.courseName && course.grade && course.classType) {
+                addCourse();
+                const courses = document.querySelectorAll(".courseData");
+                const lastCourse = courses[courses.length - 1];
+                lastCourse.querySelector(".courseName").value = course.courseName;
+                lastCourse.querySelector(".grade").value = course.grade;
+                lastCourse.querySelector(".classType").value = course.classType;
+                }
+            });
+            // Trigger calculation after loading
+            document.getElementById("calculate-button").click();
+            }
+        });
+    
+        // Save GPA data to localStorage
+        document.getElementById("save-gpa-button").addEventListener("click", () => {
+            const allCourses = [];
+            document.querySelectorAll(".courseData").forEach(courseDiv => {
+                const courseName = courseDiv.querySelector(".courseName").value.trim();
+                const grade = courseDiv.querySelector(".grade").value.trim();
+                const classType = courseDiv.querySelector(".classType").value.trim();
+                if (courseName && grade && classType) {
+                    allCourses.push({ courseName, grade, classType });
+                }
+            });
+            localStorage.setItem("gpaData", JSON.stringify(allCourses));
+            alert("GPA data saved successfully!");
+        });
+    </script>
 </body>
 </html>

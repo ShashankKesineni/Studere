@@ -38,3 +38,21 @@
     </main>
 </body>
 </html>
+
+<script>
+    document.getElementById("enter-button").addEventListener("click", () => {
+        const email = document.querySelector("input[placeholder='Email']").value.trim();
+        const password = document.querySelector("input[placeholder='Password']").value.trim();
+        const savedUser = JSON.parse(localStorage.getItem('userData'));
+
+        if (savedUser && savedUser.email === email && savedUser.password === password) {
+            alert(`Welcome back, ${savedUser.username}!`);
+            localStorage.setItem('loggedInUser', JSON.stringify(savedUser)); // Save logged-in user
+            window.location.href = "dashboard.html"; // Redirect to dashboard
+        } else {
+            alert("Invalid email or password.");
+        }
+    });
+</script>
+</body>
+</html>

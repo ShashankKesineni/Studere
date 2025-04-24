@@ -154,4 +154,44 @@ function addDetails(aCourse) {
     aCourse.appendChild(courseName);
     aCourse.appendChild(grade);
     aCourse.append(classType);
+
+    // Save GPA data to local storage
+function saveGPAData() {
+    const allCourses = [];
+    document.querySelectorAll(".courseData").forEach(courseDiv => {
+        const courseName = courseDiv.querySelector(".courseName").value.trim();
+        const grade = courseDiv.querySelector(".grade").value.trim();
+        const classType = courseDiv.querySelector(".classType").value.trim();
+        if (courseName && grade && classType) {
+            allCourses.push({ courseName, grade, classType });
+        }
+    });
+    localStorage.setItem('gpaData', JSON.stringify(allCourses));
+}
+
+// Load GPA data from local storage
+function loadGPAData() {
+    const savedCourses = JSON.parse(localStorage.getItem('gpaData')) || [];
+    savedCourses.forEach(course => {
+        addCourse();
+        const lastCourse = document.querySelectorAll(".courseData").item(-1);
+        lastCourse.querySelector(".courseName").value = course.courseName;
+        lastCourse.querySelector(".grade").value = course.grade;
+        lastCourse.querySelector(".classType").value = course.classType;
+    });
+}
+
+// Call loadGPAData when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    loadGPAData();
+});
+
+// Save data whenever a course is added, removed, or calculated
+addButton.addEventListener("click", saveGPAData);
+subtractButton.addEventListener("click", saveGPAData);
+calculateButton.addEventListener("click", saveGPAData);
+removeAllButton.addEventListener("click", () => {
+    removeAll();
+    saveGPAData();
+});
 }

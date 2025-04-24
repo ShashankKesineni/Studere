@@ -1,7 +1,8 @@
 body {
-    background-color:lightcyan;
+    background-color:#2e3a59;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 
 img {
     height: 90px;
@@ -35,7 +36,7 @@ img {
     font-size: 3rem;
     padding-top: 0;
     margin: 30px; /* Reset margin to avoid extra space */
-    color:#40aca4;
+    color:#4CAF50;
 }
 
 .top-text {
@@ -78,7 +79,7 @@ form select {
     width: 45%; /* Adjust width to fit the layout */
     text-align: center;
     padding: 207px 0; /* Center the content vertically */
-    background-color:#4abfb7;
+    background-color:#4CAF50;
 }
 
 .welcome-h1 {
@@ -94,7 +95,7 @@ form select {
 }
 
 #enter-button {
-    background-color:#40aca4;
+    background-color:#4CAF50;
     color:white;
     border:none;
     margin-top:10px;
@@ -103,7 +104,7 @@ form select {
 }
 
 #enter-button:hover {
-    background-color:#37918b;
+    background-color:lightgray;
 }
 
 .star, .pen {
