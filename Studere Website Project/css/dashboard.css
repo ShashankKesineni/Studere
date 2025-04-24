@@ -13,6 +13,9 @@ body {
     overflow-x: hidden;
 }
 
+
+
+
 /* Sidebar */
 .left-bar {
     width: 180px;
@@ -114,6 +117,69 @@ header {
     transition: background 0.2s ease;
 }
 
-.section button:hover {
-    background-color: #1b4f72;
+/* Back Button */
+#back-button {
+    font-size: 1.5rem;
+    color: #2e3a59;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#back-button:hover {
+    color: #4CAF50;
+}
+
+#taskbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #2e3a59;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#taskbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#taskbar li {
+    margin-bottom: 15px;
+}
+
+#taskbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+#taskbar a:hover {
+    background: #44506c;
+}
+
+#taskbar-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #2e3a59;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+}
+
+#taskbar-button:hover {
+    color: #4CAF50;
 }

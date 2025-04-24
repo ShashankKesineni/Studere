@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studere | Organize Your School In One Website</title>
+    <link rel="icon" href="images/StudereFavicon.png">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <header>
+        <img src="Images/Studereactualnew.png" alt="index.html">
+    </header>
+    <main>
+        <div class="signup-whole-box">
+            <div class="signup-left-box">
+                <h1 class="signup-h1">Sign Up</h1>
+                <h3 class="top-text">Sign up into Studere to continue</h3>
+                <form action="/">
+                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Password" class="password">
+                    <select name="Grade Level" id="grade-level">
+                        <option value="">Grade Level</option>
+                        <option value="6">6th</option>
+                        <option value="7">7th</option>
+                        <option value="8">8th</option>
+                        <option value="9">9th</option>
+                        <option value="10">10th</option>
+                        <option value="11">11th</option>
+                        <option value="12">12th</option>
+                    </select>
+                </form>
+                <p class="bottom-text">
+                    Already have an account? <a href="login.html">Log In</a>
+                </p>
+                <input type="button" value="Enter" id="enter-button">
+            </div>
+            <div class="signup-right-box">
+                <img class="star" src="images/star-signup.png">
+                <h1 class="welcome-h1">Welcome</h1>
+                <p class="welcome-description">
+                    Begin your academic journey
+                    and take lead in your studies
+                </p>
+                <img class="pen" src="images/pen-signup.png" alt="">
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        document.getElementById("enter-button").addEventListener("click", () => {
+            const email = document.querySelector("input[placeholder='Email']").value.trim();
+            const username = document.querySelector("input[placeholder='Username']").value.trim();
+            const password = document.querySelector("input[placeholder='Password']").value.trim();
+            const gradeLevel = document.getElementById("grade-level").value;
+    
+            if (email && username && password && gradeLevel) {
+                const userData = { email, username, password, gradeLevel };
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert("Sign-up successful! You can now log in.");
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
+</body>
+</html>

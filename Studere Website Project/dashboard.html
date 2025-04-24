@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studere | Organize Your School In One Website | Dashboard</title>
+    <link rel="icon" href="images/StudereFavicon.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    
+<div id="taskbar" style="display: none; position: fixed; top: 0; left: 0; width: 200px; height: 100%; background: #2e3a59; color: white; padding: 20px; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);">
+    <ul style="list-style: none; padding: 0;">
+        <li><a href="dashboard.html" style="color: white; text-decoration: none;">Dashboard</a></li>
+        <li><a href="events.html" style="color: white; text-decoration: none;">Events</a></li>
+        <li><a href="notes.html" style="color: white; text-decoration: none;">Notes</a></li>
+        <li><a href="gpa-calculator.html" style="color: white; text-decoration: none;">GPA Calculator</a></li>
+        <li><a href="hours.html" style="color: white; text-decoration: none;">Volunteer Hours</a></li>
+        <li><a href="settings.html" style="color: white; text-decoration: none;">Settings</a></li>
+    </ul>
+</div>
+<script>
+    document.getElementById("taskbar-button").addEventListener("click", () => {
+        const taskbar = document.getElementById("taskbar");
+        taskbar.style.display = taskbar.style.display === "none" ? "block" : "none";
+    });
+</script>
+    <header>
+        <div class="header-content">
+            <h1>Welcome to Studere</h1>
+        </div>
+    </header>
+    <div class="left-bar">
+        <div class="logo">
+            <img src="images/Studereactualnew.png" alt="Studere Logo">
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="events.html">Schedule</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="gpa-calculator.html">Grades</a></li>
+                <li><a href="hours.html">Volunteer Hours</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-bar">
+        <h2>Dashboard Overview</h2>
+        <p>Welcome to your dashboard! Here you can track your assignments, grades, and upcoming schedule.</p>
+        <div class="section">
+            <h3>Your Assignments</h3>
+            <p>No upcoming assignments.</p>
+        </div>
+        <div class="section">
+            <h3>Schedule</h3>
+            <p>Scheduled events that are upcoming:</p>
+            <button onclick="window.location.href='events.html'" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px;">
+                Add New Event
+            </button>
+            <button onclick="window.location.href='events.html'" 
+                                            style="padding: 10px 20px; background-color: #4c82af; color: white; border: none; cursor: pointer; font-size: 16px; margin-left: 7px;">
+                View All Events
+            </button>
+        </div>
+
+        <!-- Volunteer Hours Section -->
+        <div class="section">
+            <h3>Volunteer Hours</h3>
+            <p>Track your community service hours:</p>
+            <button onclick="window.location.href='hours.html'" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px;">
+                Log Volunteer Hours
+            </button>
+        </div>
+        
+        <!-- GPA Calculator Button -->
+        <div class="section">
+            <h3>Calculate Your GPA</h3>
+            <p>Click the button below to access the GPA calculator:</p>
+            <button onclick="window.location.href='gpa-calculator.html'" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px;">
+                Go to GPA Calculator
+            </button>
+        </div>
+    </div>
+</body>
+</html>
+
+<header>
+    <div class="header-content">
+        <h1>Welcome to Studere</h1>
+        <h2 id="user-greeting"></h2>
+    </div>
+</header>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (loggedInUser) {
+            document.getElementById("user-greeting").textContent = `Hello, ${loggedInUser.username}!`;
+        } else {
+            alert("You are not logged in. Redirecting to login page.");
+            window.location.href = "login.html";
+        }
+    });
+</script>
+
+<div class="nav-items">
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="events.html">Schedule</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="gpa-calculator.html">Grades</a></li>
+        <li><a href="hours.html">Volunteer Hours</a></li>
+        <li><a href="settings.html">Settings</a></li>
+    </ul>
+</div>

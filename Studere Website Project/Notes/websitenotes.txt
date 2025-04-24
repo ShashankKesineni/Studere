@@ -1,0 +1,380 @@
+Checklist:
+    1. include tab menu with buttons
+        a. logo
+        b. About
+        c. Members
+        d. Contacts
+        e. Sign up/log in
+    
+    2. Include the main header/title of website
+        a. helping you organize your school activities so you can live your life without worrying
+        b. Doing the hard work for students so they can live a less challenged life???
+
+    3. Inlcude subtitle, such as a brief description of website (mini about section)
+        a. begin today to start organizing your school materials all on 1 website. 
+
+    Final. Footer/footnote that includes contacts information of the creators and members. (Instagram, linkden pages, twitter pages, general location, maybe final logo)
+
+
+MAIN CHECKLIST:
+    1. Interactive calendar
+        - Personalized schedule
+        - reminder alerts for coming events
+        - study blocks that track their learning goals 
+        - (possible) event sharing
+
+    2. GPA calculator
+        - calculate their current gpa, weighter or unweighted
+        - track their progress over time
+        - calculate for possible grade changes or future updates
+
+DASHBOARD
+ - Navigation Menu (Center): Quick links to important sections (e.g., Home, Courses, Materials, Calendar, Profile, etc.).
+
+ 3. Main Content Area (Center)
+
+    Welcome Section/Personalized Greeting:
+        Greeting (Top Left): A friendly message such as "Good Morning, [Student Name]!" with a short motivational quote or tip of the day.
+        Current Focus (Optional): A section displaying what the student is currently focusing on (e.g., “Today’s Focus: Math Exam Preparation”).
+        Progress Summary (Center): A quick overview of the student's current progress in courses, including key metrics (e.g., "3 assignments due this week", “5 lessons completed in the last 7 days”, “Current GPA: 3.8”).
+
+    Main Widgets Section (Interactive Features)
+        Task List (Left): A widget displaying upcoming tasks, homework, or exams with due dates. Students can check off completed tasks.
+        Calendar (Center): A mini calendar displaying current and upcoming events, with a button to open the full calendar.
+        GPA Calculator (Right): A quick calculator widget where students can check their GPA with current grades or calculate hypothetical GPA changes.
+
+    Study Mode/Focus Mode Timer (Optional)
+        Pomodoro Timer (Center, Floating): A timer for study sessions, with a start/stop button for focus sessions (e.g., 25-minute study blocks with 5-minute breaks).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SOME RANDOM CODE PLEASE DO REFER: >>>>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Studere is a platform that helps students organize their school life with tools like GPA calculators, calendars, and more.">
+    <meta name="keywords" content="student, organization, school, GPA, calendar, education, planner">
+    <meta name="robots" content="index, follow">
+    <title>Studere | Organize Your School In One Website</title>
+    <link rel="icon" type="image/png" href="Images/StudereFavicon.png">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/hero.css">
+</head>
+
+<body>
+    <!-- Header and Navigation -->
+    <header class="site-header">
+        <nav class="navigation-bar">
+            <img class="logo" src="Images/Studereactualnew.png" alt="Studere logo">
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link">Members</a>
+                <a href="#" class="nav-link">Contacts</a>
+                <a href="#" class="nav-link" id="signup-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header> -->
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-header">
+                Organize Your
+                <span class="highlight-text">Entire School</span><br>
+                In Just One Website...<br>For Free
+            </h1>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-subheader">
+                        Be immersed in a completely free website that offers all of your real-life planning tools digitally.
+                    </h2>
+                    <h2 class="hero-subheader">
+                        So you can spend more time accomplishing and less time worrying.
+                    </h2>
+                </div>
+                <img class="hero-image" src="Images/HeroImage1.png" alt="Student organizing their schedule on Studere platform">
+            </div>
+            <div class="hero-footer">
+                <div class="hero-description">
+                    <h2 class="description-text">
+                        Take initiative within your learning to maximize opportunities for educational success.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="key-features">
+            <h1 class="section-title">Key Features</h1>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <img src="Images/feature1.png" alt="Calendar feature">
+                    <h3>Interactive Calendar</h3>
+                    <p>Keep track of your class schedules, assignments, and extracurricular activities all in one place.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="Images/feature2.png" alt="GPA tracker">
+                    <h3>GPA Tracker</h3>
+                    <p>Easily input grades and track your academic performance over time.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="Images/feature3.png" alt="Extracurricular organizer">
+                    <h3>Extracurricular Organizer</h3>
+                    <p>Manage and schedule your extracurricular activities with ease.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="Images/feature4.png" alt="Study planner">
+                    <h3>Study Planner & Goals</h3>
+                    <p>Plan your study time and set academic goals to stay on track.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h1 class="section-title">What Our Users Say</h1>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p>"Studere has completely changed how I organize my school life. It’s so easy to use!"</p>
+                    <p>- Jane Doe, High School Senior</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A fantastic tool for keeping track of everything from grades to extracurriculars!"</p>
+                    <p>- John Smith, College Freshman</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us-section">
+            <h1 class="section-title">Why Choose Studere?</h1>
+            <div class="reasons-cards">
+                <div class="reason-card">
+                    <h3>All-in-One Platform</h3>
+                    <p>Everything you need to organize your school life is available in one place.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Free to Use</h3>
+                    <p>Enjoy all the features without any cost. Studere is completely free.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Improved Productivity</h3>
+                    <p>Stay on top of your tasks and deadlines with smart tools to help you succeed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Demo Section -->
+        <section class="visual-demo-section">
+            <h1 class="section-title">Watch the Demo</h1>
+            <video controls>
+                <source src="Images/demo-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h1 class="section-title">Contact Us</h1>
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Studere. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+<!-- </body>
+
+</html> -->
+
+
+
+
+my broter password >>>> Ch!nukathu1824
+
+ lollololol xdxdxd
+
+
+
+
+
+
+
+ NEW SIGN UP AND LOGIN PAGE CODE:
+
+ /* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    padding: 30px 0;
+}
+
+header img {
+    width: 150px;
+}
+
+/* Layout Box */
+.signup-whole-box {
+    display: flex;
+    width: 900px;
+    max-width: 95%;
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Left Box */
+.signup-left-box {
+    flex: 1;
+    padding: 50px 40px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-h1 {
+    font-size: 2.5rem;
+    color: #2e3a59;
+    margin-bottom: 10px;
+}
+
+.top-text {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #2e86de;
+}
+
+#enter-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e86de;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#enter-button:hover {
+    background-color: #1b4f72;
+}
+
+.bottom-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.bottom-text a {
+    color: #2e86de;
+    text-decoration: none;
+}
+
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+/* Right Box */
+.signup-right-box {
+    flex: 1;
+    padding: 50px 30px;
+    background: linear-gradient(to bottom right, #2e86de, #1b4f72);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.signup-right-box img.star {
+    width: 60px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.signup-right-box img.pen {
+    width: 100px;
+    margin-top: 30px;
+}
+
+.welcome-h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 300px;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <header>
+        <button id="back-button" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; margin-right: 10px;">
+            &#8592; Back
+        </button>
+        
+    </header>
+    <script>
+        document.getElementById("back-button").addEventListener("click", () => {
+            window.history.back(); // Navigate to the previous page
+        });
+    </script>
+    <script>
+        document.getElementById("taskbar-button").addEventListener("click", () => {
+            const taskbar = document.getElementById("taskbar");
+            taskbar.style.display = taskbar.style.display === "none" ? "block" : "none";
+        });
+    </script>
+</header>
+<script>
+    document.getElementById("back-button").addEventListener("click", () => {
+        window.history.back(); // Navigate to the previous page
+    });
+</script>
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studere | Organize Your School In One Website | Events</title>
+    <link rel="icon" href="images/StudereFavicon.png">
+    <link rel="stylesheet" href="css/events.css">
+</head>
+<body>
+    <header>
+        <header>
+            
+        <h1>Events & Tasks</h1>
+        <h2>Manage your events, schedule, and to-do list here.</h2>
+    </header>
+    <main>
+        <div class="events-section">
+            <h3>Events</h3>
+            <button id="add-event-button">Add New Event</button>
+            <button id="save-events-button">Save Events</button>
+            <h3>Your Upcoming Events:</h3>
+            <div class="event-container">
+                <!-- added events go here-->
+            </div>
+            <div class="event-adder-section">
+                <!-- Event adder form -->
+                 
+                 
+            </div>
+            <div class="event-details" id="event-details">
+                <h3>Event Details</h3>
+                <p id="event-description">Select an event to see details.</p>
+            </div>
+        </div>
+
+        <div class="todo-section">
+            <h3>To-Do List</h3>
+            <div class="todo-input">
+                <input type="text" id="todo-input" placeholder="Add a new task">
+                <button id="add-todo-button">Add Task</button>
+            </div>
+            <ul id="todo-list">
+                <!-- Todo items will be added here -->
+            </ul>
+            <button id="save-todo-button">Save Tasks</button>
+        </div>
+    </main>
+    <script src="javascript/eventhandler.js"></script>
+    <script>
+        // Existing events code...
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load events
+            const savedEvents = JSON.parse(localStorage.getItem("eventsData")) || [];
+            document.querySelector('.event-container').innerHTML = '';
+            if (savedEvents && savedEvents.length > 0) {
+                savedEvents.forEach(event => {
+                    if (event.title && event.date && event.description) {
+                        addNewEvent(event.title, event.date, event.description);
+                    }
+                });
+            }
+
+            // Load todos
+            const savedTodos = JSON.parse(localStorage.getItem("todosData")) || [];
+            const todoList = document.getElementById("todo-list");
+            savedTodos.forEach(todo => {
+                addTodoItem(todo.text, todo.completed);
+            });
+        });
+
+        // Save events
+        document.getElementById("save-events-button").addEventListener("click", () => {
+            const allEvents = [];
+            document.querySelectorAll(".event-item").forEach(eventDiv => {
+                const title = eventDiv.querySelector(".event-title").textContent;
+                const date = eventDiv.querySelector(".event-date").textContent;
+                const description = eventDiv.querySelector(".event-description").textContent;
+                if (title && date && description) {
+                    allEvents.push({ title, date, description });
+                }
+            });
+            localStorage.setItem("eventsData", JSON.stringify(allEvents));
+            alert("Events saved successfully!");
+        });
+
+        // Todo list functionality
+        function addTodoItem(text, completed = false) {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <input type="checkbox" ${completed ? 'checked' : ''}>
+                <span>${text}</span>
+                <button class="delete-todo">×</button>
+            `
+            document.getElementById("todo-list").appendChild(li);
+        }
+        // Add a datepicker to the event form
+        document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("event-date-input")) {
+            e.target.type = "date";
+            e.target.setAttribute("required", "");
+            }
+        });
+
+        // Reset input type when focus is lost
+        document.addEventListener("blur", (e) => {
+            if (e.target.classList.contains("event-date-input")) {
+                if (!e.target.value) {
+                    e.target.type = "text";
+                }
+            }
+        }, true);
+        document.getElementById("add-todo-button").addEventListener("click", () => {
+            const input = document.getElementById("todo-input");
+            if (input.value.trim()) {
+                addTodoItem(input.value);
+                input.value = '';
+            }
+        });
+
+        document.getElementById("save-todo-button").addEventListener("click", () => {
+            const todos = [];
+            document.querySelectorAll("#todo-list li").forEach(li => {
+                todos.push({
+                    text: li.querySelector("span").textContent,
+                    completed: li.querySelector("input[type='checkbox']").checked
+                });
+            });
+            localStorage.setItem("todosData", JSON.stringify(todos));
+            alert("Tasks saved successfully!");
+        });
+
+        // Event delegation for todo list interactions
+        document.getElementById("todo-list").addEventListener("click", (e) => {
+            if (e.target.classList.contains("delete-todo")) {
+                e.target.parentElement.remove();
+            }
+        });
+    </script>
+</body>
+</html>
